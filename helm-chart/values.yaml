@@ -118,7 +118,7 @@ frontend:
   create: true
   name: frontend
   externalService: true
-  cymbalBranding: false
+  cymbalBranding: true
   # One of: local, gcp, aws, azure, onprem, alibaba. When not set, defaults to "local" unless running in GKE, otherwise auto-sets to gcp.
   platform: local
   singleSharedSession: false
