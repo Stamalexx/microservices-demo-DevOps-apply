@@ -113,7 +113,8 @@ class EmailService(BaseEmailService):
 
 class DummyEmailService(BaseEmailService):
   def SendOrderConfirmation(self, request, context):
-    logger.info('A request to send order confirmation email to {} has been received.'.format(request.email))
+    logger.info("🚀 GITOPS TEST: The Jenkins Email Service is officially alive in Dummy Mode!")
+    logger.info('devops testA request to send order confirmation email to {} has been received.'.format(request.email))
     return demo_pb2.Empty()
 
 class HealthCheck():
