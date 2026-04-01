@@ -62,6 +62,7 @@ securityContext:
 adService:
   create: true
   name: adservice
+  image: docker.io/stamalexx/adservice:baseline
   resources:
     requests:
       cpu: 200m
@@ -73,6 +74,7 @@ adService:
 cartService:
   create: true
   name: cartservice
+  image: docker.io/stamalexx/cartservice:baseline
   resources:
     requests:
       cpu: 200m
@@ -84,6 +86,7 @@ cartService:
 checkoutService:
   create: true
   name: checkoutservice
+  image: docker.io/stamalexx/checkoutservice:baseline
   resources:
     requests:
       cpu: 100m
@@ -95,6 +98,7 @@ checkoutService:
 currencyService:
   create: true
   name: currencyservice
+  image: docker.io/stamalexx/currencyservice:baseline
   resources:
     requests:
       cpu: 100m
@@ -106,6 +110,7 @@ currencyService:
 emailService:
   create: true
   name: emailservice
+  image: docker.io/stamalexx/emailservice:baseline
   resources:
     requests:
       cpu: 100m
@@ -117,7 +122,7 @@ emailService:
 frontend:
   create: true
   name: frontend
-  image: docker.io/stamalexx/frontend:v1.0.39
+  image: docker.io/stamalexx/frontend:v1.0.38
   externalService: true
   cymbalBranding: true
   # One of: local, gcp, aws, azure, onprem, alibaba. When not set, defaults to "local" unless running in GKE, otherwise auto-sets to gcp.
@@ -143,6 +148,7 @@ frontend:
 loadGenerator:
   create: true
   name: loadgenerator
+  image: docker.io/stamalexx/loadgenerator:baseline
   checkFrontendInitContainer: true
   resources:
     requests:
@@ -155,6 +161,7 @@ loadGenerator:
 paymentService:
   create: true
   name: paymentservice
+  image: docker.io/stamalexx/paymentservice:baseline
   resources:
     requests:
       cpu: 100m
@@ -166,6 +173,7 @@ paymentService:
 productCatalogService:
   create: true
   name: productcatalogservice
+  image: docker.io/stamalexx/productcatalogservice:baseline
   # Specifies an extra latency to any request on productcatalogservice, by default no extra latency.
   extraLatency: ""
   resources:
@@ -179,6 +187,7 @@ productCatalogService:
 recommendationService:
   create: true
   name: recommendationservice
+  image: docker.io/stamalexx/recommendationservice:baseline
   resources:
     requests:
       cpu: 100m
@@ -190,6 +199,7 @@ recommendationService:
 shippingService:
   create: true
   name: shippingservice
+  image: docker.io/stamalexx/shippingservice:baseline
   resources:
     requests:
       cpu: 100m
