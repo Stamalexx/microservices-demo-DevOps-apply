@@ -88,7 +88,7 @@ class EmailService(BaseEmailService):
     order = request.order
 
     # --- YOUR CUSTOM TEST CODE ---
-    logger.info("🚀 GITOPS TEST: The Jenkins Email Service is officially alive!")
+    logger.info("🚀 test 2 GITOPS TEST: The Jenkins Email Service is officially alive!")
         # -----------------------------
         
     logger.info('A request to send order confirmation email to {} has been received.'.format(email))
