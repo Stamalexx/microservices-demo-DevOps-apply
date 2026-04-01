@@ -231,6 +231,7 @@ public final class AdService {
 
     // Start the RPC server. You shouldn't see any output from gRPC before this.
     logger.info("AdService starting.");
+    logger.info("DEVOPS TESTING !!!!!!!!");
     final AdService service = AdService.getInstance();
     service.start();
     service.blockUntilShutdown();
