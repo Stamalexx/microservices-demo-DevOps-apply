@@ -117,7 +117,7 @@ emailService:
 frontend:
   create: true
   name: frontend
-  image: docker.io/stamalexx/frontend:v1.0.27
+  image: docker.io/stamalexx/frontend:v1.0.28
   externalService: true
   cymbalBranding: true
   # One of: local, gcp, aws, azure, onprem, alibaba. When not set, defaults to "local" unless running in GKE, otherwise auto-sets to gcp.
