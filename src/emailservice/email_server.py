@@ -87,6 +87,12 @@ class EmailService(BaseEmailService):
     email = request.email
     order = request.order
 
+    # --- YOUR CUSTOM TEST CODE ---
+    logger.info("🚀 GITOPS TEST: The Jenkins Email Service is officially alive!")
+        # -----------------------------
+        
+    logger.info('A request to send order confirmation email to {} has been received.'.format(email))
+
     try:
       confirmation = template.render(order = order)
     except TemplateError as err:

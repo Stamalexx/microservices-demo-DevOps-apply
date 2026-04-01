@@ -62,25 +62,34 @@ module.exports = function charge (request) {
   const { amount, credit_card: creditCard } = request;
   const cardNumber = creditCard.credit_card_number;
   const cardInfo = cardValidator(cardNumber);
-  const {
-    card_type: cardType,
-    valid
-  } = cardInfo.getCardDetails();
+  const { card_type: cardType, valid } = cardInfo.getCardDetails();
 
-  if (!valid) { throw new InvalidCreditCard(); }
+  if (!valid) {
+    throw new InvalidCreditCard();
+  }
 
   // Only VISA and mastercard is accepted, other card types (AMEX, dinersclub) will
   // throw UnacceptedCreditCard error.
-  if (!(cardType === 'visa' || cardType === 'mastercard')) { throw new UnacceptedCreditCard(cardType); }
+  if (!(cardType === "visa" || cardType === "mastercard")) {
+    throw new UnacceptedCreditCard(cardType);
+  }
 
   // Also validate expiration is > today.
   const currentMonth = new Date().getMonth() + 1;
   const currentYear = new Date().getFullYear();
-  const { credit_card_expiration_year: year, credit_card_expiration_month: month } = creditCard;
-  if ((currentYear * 12 + currentMonth) > (year * 12 + month)) { throw new ExpiredCreditCard(cardNumber.replace('-', ''), month, year); }
+  const {
+    credit_card_expiration_year: year,
+    credit_card_expiration_month: month,
+  } = creditCard;
+  if (currentYear * 12 + currentMonth > year * 12 + month) {
+    throw new ExpiredCreditCard(cardNumber.replace("-", ""), month, year);
+  }
 
   logger.info(`Transaction processed: ${cardType} ending ${cardNumber.substr(-4)} \
     Amount: ${amount.currency_code}${amount.units}.${amount.nanos}`);
+  // --- YOUR CUSTOM TEST CODE ---
+  logger.info("💸 GITOPS TEST: Payment Service has processed a transaction!");
+  // -----------------------------
 
   return { transaction_id: uuidv4() };
 };
