@@ -19,7 +19,7 @@
 images:
   repository: docker.io/stamalexx
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.1"
+  tag: ""
 
 serviceAccounts:
   # Specifies whether service accounts should be created.
@@ -117,6 +117,7 @@ emailService:
 frontend:
   create: true
   name: frontend
+  image: docker.io/stamalexx/frontend:v1.0.26
   externalService: true
   cymbalBranding: true
   # One of: local, gcp, aws, azure, onprem, alibaba. When not set, defaults to "local" unless running in GKE, otherwise auto-sets to gcp.
