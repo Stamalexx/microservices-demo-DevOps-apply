@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-throw new Error("Thesis Catastrophic Crash Scenario!");
+
 const pino = require('pino');
 const logger = pino({
   name: 'currencyservice-server',
